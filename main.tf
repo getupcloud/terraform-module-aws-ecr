@@ -7,26 +7,26 @@ data "aws_iam_policy_document" "ecr" {
     effect = "Allow"
 
     actions = [
-      "ecr:GetRegistryPolicy",
-      "ecr:DescribeImageScanFindings",
+      "sts:GetSessionToken",
+      "sts:GetServiceBearerToken",
       "sts:GetFederationToken",
-      "ecr:GetLifecyclePolicyPreview",
-      "ecr:GetDownloadUrlForLayer",
-      "ecr:DescribeRegistry",
-      "ecr:GetAuthorizationToken",
+      "sts:GetCallerIdentity",
       "sts:GetAccessKeyInfo",
+      "sts:AssumeRoleWithWebIdentity",
       "ecr:ListTagsForResource",
       "ecr:ListImages",
-      "sts:GetSessionToken",
-      "ecr:BatchGetImage",
-      "ecr:DescribeImages",
-      "ecr:DescribeRepositories",
-      "sts:GetCallerIdentity",
-      "sts:AssumeRoleWithWebIdentity",
-      "sts:GetServiceBearerToken",
-      "ecr:BatchCheckLayerAvailability",
       "ecr:GetRepositoryPolicy",
-      "ecr:GetLifecyclePolicy"
+      "ecr:GetRegistryPolicy",
+      "ecr:GetLifecyclePolicyPreview",
+      "ecr:GetLifecyclePolicy",
+      "ecr:GetDownloadUrlForLayer",
+      "ecr:GetAuthorizationToken",
+      "ecr:DescribeRepositories",
+      "ecr:DescribeRegistry",
+      "ecr:DescribeImages",
+      "ecr:DescribeImageScanFindings",
+      "ecr:BatchGetImage",
+      "ecr:BatchCheckLayerAvailability"
     ]
 
     resources = ["*"]
